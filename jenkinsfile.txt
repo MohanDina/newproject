@@ -4,7 +4,7 @@ pipeline {
         stage ('SCM checkout') {
             steps {
                 script{
-                     git branch: 'main', url: 'https://github.com/mohan.git'
+                     git branch: 'main', url: 'https://github.com/MohanDina/newproject'
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([string(credentialsId: 'dockercred', variable: 'dockerpassword')]) {
-                        sh "docker login -u mohan -p ${dockerpassword}"
+                        sh "docker login -u mohadina -p ${dockerpassword}"
                         sh 'docker push mohan/app:1'
                     }
                 }
